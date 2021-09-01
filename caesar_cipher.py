@@ -1,24 +1,25 @@
+# Iterate over each character in the plaintext string.
+# Convert the character to a numeric Unicode value.
+# Increment the numeric value by the offset.
+# Convert the integer back to a character and append to cipher. 
 def encrypt(plaintext, offset):
-    # Iterate over each character in the plaintext string
-    cipher = ""
+    encrypted = ""
     for c in plaintext:
-        # Convert the character at index c to a numeric Unicode value
-        o = ord(c)
-        # Increment the integer value at index c by the offset
-        o = o + offset
-        cipher = cipher + chr(o)
-    return cipher
+        encrypted = encrypted + chr(ord(c)+ offset)
+    return encrypted
 
 
 def main():
     print("\nCaesar Cipher\n")
-    plaintext = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
-    offset = 1
+    
+    plaintext = "The quick brown fox jumps over the lazy dog."
     print("Plaintext: {}".format(plaintext))
-    print("Offset: {}".format(offset))
 
+    offset = 1
+    print("Offset: {}".format(offset))
+    
     ciphertext = encrypt(plaintext, offset)
-    print(ciphertext)
+    print("Ciphertext: {}".format(ciphertext))
 
 
 if __name__ == '__main__':
